@@ -59,6 +59,34 @@ function Header() {
           Register
         </NavLink>
       </li>
+      { user&&
+        <>
+        <li>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-500"
+              : "text-white hover:text-blue-400 transition duration-300"
+          }
+        >
+          Profile
+        </NavLink>
+      </li>
+        <li>
+        <NavLink
+          to="/member"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-500"
+              : "text-white hover:text-blue-400 transition duration-300"
+          }
+        >
+          Members
+        </NavLink>
+      </li>
+        </>
+      }
     </>
   );
 
