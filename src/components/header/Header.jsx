@@ -75,7 +75,7 @@ function Header() {
       </li>
         <li>
         <NavLink
-          to="/members"
+          to="/member"
           className={({ isActive }) =>
             isActive
               ? "text-blue-500"
