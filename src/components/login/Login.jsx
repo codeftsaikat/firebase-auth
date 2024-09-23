@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 function Login() {
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,8 +13,12 @@ function Login() {
 
     // sign in with firebase
     signInUser(email, password)
-    .then((result) => console.log(result.user))
-    .catch((error) => console.log(error))
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate('/')
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div>
